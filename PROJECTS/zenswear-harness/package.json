@@ -1,10 +1,13 @@
 {
   "name": "zenswear-harness",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Zenswear AI Agent Harness - Local-first, model-agnostic operating system for fashion inventory",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "pnpm --filter core dev",
+    "tui": "pnpm --filter tui dev",
+    "test": "pnpm --filter core test",
+    "build": "pnpm -r run build"
   },
   "keywords": [],
   "author": "",

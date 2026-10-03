@@ -1,10 +1,21 @@
 {
   "name": "core",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Core Event, Logger, and State Machine Runtime for Zenswear Harness",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx src/index.ts",
+    "test": "tsx src/test-foundation.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

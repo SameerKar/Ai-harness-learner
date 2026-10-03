@@ -22,6 +22,9 @@ importers:
 
   packages/tui:
     dependencies:
+      core:
+        specifier: workspace:*
+        version: link:../core
       ink:
         specifier: ^7.1.1
         version: 7.1.1(@types/react@19.2.18)(react@19.2.8)

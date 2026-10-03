@@ -117,12 +117,12 @@ graph TB
 
 | Stage | Phase | What It Does | Status |
 |:------|:------|:-------------|:-------|
-| **S01** | Foundation | Create project folder + TypeScript setup | ⬜ |
-| **S02** | Foundation | Core types + contracts | ⬜ |
-| **S03** | Foundation | Event Router | ⬜ |
-| **S04** | Foundation | Structured JSONL Logger | ⬜ |
-| **S05** | Foundation | Agent State Machine (FSM) | ⬜ |
-| **S06** | Foundation | Basic Terminal UI | ⬜ |
+| **S01** | Foundation | Create project folder + TypeScript setup | ✅ |
+| **S02** | Foundation | Core types + contracts | ✅ |
+| **S03** | Foundation | Event Router | ✅ |
+| **S04** | Foundation | Structured JSONL Logger | ✅ |
+| **S05** | Foundation | Agent State Machine (FSM) | ✅ |
+| **S06** | Foundation | Basic Terminal UI | ✅ |
 | **S07** | Intelligence | LLM_Adapter interface | ⬜ |
 | **S08** | Intelligence | Ollama local adapter | ⬜ |
 | **S09** | Intelligence | DeepSeek cloud adapter | ⬜ |

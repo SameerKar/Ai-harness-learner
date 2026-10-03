@@ -1,25 +1,37 @@
 // Agent lifecycle states
 export type AgentState = 'IDLE' | 'ROUTING' | 'EXECUTING' | 'WAITING_APPROVAL' | 'ERROR';
 
-// Every event in the system is one of these
-export type AgentEvent = {
+// Event types supported across the harness
+export type AgentEventType =
+  | 'agent:start'
+  | 'agent:end'
+  | 'agent:state_change'
+  | 'tool:call'
+  | 'tool:result'
+  | 'memory:write'
+  | 'memory:read'
+  | 'ui:update'
+  | 'error'
+  | 'fallback:triggered'
+  | 'approval:requested'
+  | 'approval:resolved';
+
+// Every event in the system follows this standard format
+export interface AgentEvent<T = unknown> {
   id: string;
   timestamp: string;
-  type: 
-    | 'agent:start' 
-    | 'agent:end' 
-    | 'tool:call' 
-    | 'tool:result' 
-    | 'memory:write' 
-    | 'memory:read' 
-    | 'ui:update' 
-    | 'error'
-    | 'fallback:triggered' 
-    | 'approval:requested' 
-    | 'approval:resolved';
+  type: AgentEventType;
   source: string;       // Which module emitted this
-  payload: any;         // Event-specific data
-};
+  payload: T;           // Event-specific data
+}
+
+// State change payload
+export interface StateChangePayload {
+  from: AgentState;
+  to: AgentState;
+  reason?: string;
+  context?: Record<string, unknown>;
+}
 
 // Standard tool I/O — every tool follows this contract
 export interface ToolPayload {
@@ -67,8 +79,8 @@ export interface InferencePayload {
 export interface TokenUsage {
   promptTokens: number;
   completionTokens: number;
-  cacheHitTokens?: number;    // DeepSeek specific
-  cacheMissTokens?: number;   // DeepSeek specific
+  cacheHitTokens?: number;    // Cache specific (e.g. DeepSeek / Anthropic)
+  cacheMissTokens?: number;
   estimatedCostUSD: number;
 }
 
